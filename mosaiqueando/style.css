@@ -42,3 +42,14 @@ body a {
 #index {
   font-weight: normal;
 }
+
+pre {
+  background-color: lightgray;
+  overflow-x: scroll;
+  text-align: left;
+}
+
+code {
+  font-size: large;
+  color: black;
+}
