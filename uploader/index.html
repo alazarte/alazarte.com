@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta name="generator" content="md2html">
+</head>
+<body>
+<head>
+<link rel="stylesheet" type="text/css" href="https://public.alazarte.com/style.css" />
+<meta charset="utf-8"/>
+<link rel="shortcut icon" href="https://public.alazarte.com/favicon.ico" type="image/x-icon">
+</head>
+<h1>alazarte</h1>
+<p>[<a href="https://alazarte.com/">home</a>]</p>
+<h2>Uploader</h2>
+<p>To upload pictures or plaint text files from <a href="https://alazarte.com/sendfile.html">sendfile</a>. The methods are:</p>
+<pre><code>GET /
+index.html
+
+POST /
+Accept: multipart/form-data
+Body format:
+  When sending paste:
+    title=filename.txt
+    paste=multiline text file
+    secret=currentSecret
+  When sending picture:
+    file=image/jpeg file
+    secret=currentSecret
+</code></pre>
+<p>Source code: <a href="https://alazarte.com/">https://git.alazarte.com/cgit.cgi/uploader/</a></p>
+</body>
+</html>
