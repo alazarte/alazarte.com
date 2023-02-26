@@ -2,6 +2,8 @@ body {
   width: 700px;
   margin-left: auto;
   margin-right: auto;
+
+  font-family: sans;
 }
 
 pre {
@@ -25,4 +27,15 @@ table {
 
 #links {
   width: 30%;
+}
+
+.galleryImg {
+  padding: 2px;
+  float: left;
+  margin-right: 25px;
+}
+
+.galleryImg:hover {
+  padding: 0px;
+  border: 2px solid black;
 }

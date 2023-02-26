@@ -23,15 +23,19 @@ function uploadFile(secret, file, isPrivate) {
     formData.append("secret", secret);
     formData.append("isPrivate", isPrivate);
 
-    request("https://api.alazarte.com/file", formData, "File")
-        .then( r => {
+    fetch("https://api.alazarte.com/file", {method: "POST", body: formData})
+        .then(r => {
             appendStatus(r.status, r.statusText);
-            console.log(r);
+
             if (r.status < 200 && r.status > 299) {
                 return;
             }
 
             appendLink(r.link);
+        })
+        .catch( e => {
+            console.log(e);
+            appendStatus(0, e);
         });
 }
 
@@ -43,7 +47,7 @@ function uploadPaste(secret, title, paste, isPrivate) {
     formData.append("paste", paste);
     formData.append("isPrivate", isPrivate);
 
-    request("https://api.alazarte.com/paste", formData, "Paste")
+    fetch("https://api.alazarte.com/paste", {method: "POST", body: formData})
         .then( r => {
             appendStatus(r.status, r.statusText);
             console.log(r);
@@ -91,6 +95,11 @@ function sendFile() {
 
     const linksElem = document.getElementById("links");
     linksElem.innerHTML = "";
+
+    if (! file && !title && !paste) {
+        statusElem.innerHTML = "Nothing to send.";
+        return;
+    }
 
     if (file) {
         uploadFile(secret, file, isPrivate);

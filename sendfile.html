@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" type="text/css" href="https://public.alazarte.com/style.css" />
-<style>
+  <head>
+    <link rel="stylesheet" type="text/css" href="https://public.alazarte.com/style.css" />
+    <style>
 table, table input, table textarea {
   width: 100%;
 }
-</style>
-</head>
-<body>
-<h1>alazarte</h1>
-<p>[<a href="index.html">home</a>] [<a href="https://api.alazarte.com">api</a>]</p>
-<p>
-Attach image, or create a paste. But only I know the secret so you can't use it.
-</p>
-<table style="border-collapse: collapse;">
-  <tr>
-    <td>
-    </td>
-    <td>
-      <a href="https://public.alazarte.com">Explore files</a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <label for="file">Choose an image</label>
-    </td>
-    <td>
-      <input type="file" id="file" name="file" accept="image/jpeg,image/png">
-    </td>
-  </tr>
-  <tr style="border-top: 1px solid black;">
-    <td>
-      <label for="title">Title</label>
-    </td>
-    <td>
-      <input type="text" id="title">
-    </td>
-  </tr>
-  <tr style="border-bottom: 1px solid black;">
-    <td>
-      <label for="paste">Paste</label>
-    </td>
-    <td>
-      <textarea id="paste"></textarea>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <label for="secret">Enter secret</label>
-    </td>
-    <td>
-      <input type="text" id="secret" name="secret">
-      <td>
-  </tr>
-  <tr>
-    <td>
-    </td>
-    <td>
-      <button onclick="sendFile()">Send</button>
-      <input style="width: 20px" type="checkbox" id="isPrivate" name="isPrivate">
-      <label for="isPrivate">Private</label><br>
-    </td>
-  </tr>
-</table>
-<pre style="margin-top: 20px;">
+    </style>
+  </head>
+  <body>
+    <h1>alazarte</h1>
+    <p>[<a href="index.html">home</a>] [<a href="https://api.alazarte.com">api</a>]</p>
+    <p>
+    Attach image, or create a paste. But only I know the secret so you can't use it.
+    </p>
+    <table style="border-collapse: collapse;">
+      <tr>
+        <td>
+        </td>
+        <td>
+          <a href="https://public.alazarte.com">Explore files</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="file">Choose an image</label>
+        </td>
+        <td>
+          <input type="file" id="file" name="file" accept="image/jpeg,image/png">
+        </td>
+      </tr>
+      <tr style="border-top: 1px solid black;">
+        <td>
+          <label for="title">Title</label>
+        </td>
+        <td>
+          <input type="text" id="title">
+        </td>
+      </tr>
+      <tr style="border-bottom: 1px solid black;">
+        <td>
+          <label for="paste">Paste</label>
+        </td>
+        <td>
+          <textarea id="paste"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="secret">Enter secret</label>
+        </td>
+        <td>
+          <input type="text" id="secret" name="secret">
+          <td>
+      </tr>
+      <tr>
+        <td>
+        </td>
+        <td>
+          <button onclick="sendFile()">Send</button>
+          <input style="width: 20px" type="checkbox" id="isPrivate" name="isPrivate">
+          <label for="isPrivate">Private</label><br>
+        </td>
+      </tr>
+    </table>
+    <pre style="margin-top: 20px;">
 <code id="status">
 </code>
-</pre>
-<div id="links">
-</div>
-<script src="https://public.alazarte.com/js/sendfile.js"></script>
-</body>
+    </pre>
+    <div id="links">
+    </div>
+    <script src="https://public.alazarte.com/js/sendfile.js"></script>
+  </body>
 </html>
