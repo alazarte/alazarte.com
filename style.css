@@ -1,0 +1,16 @@
+body {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+pre {
+  background-color: lightgray;
+  padding: 10px;
+  overflow-x: scroll;
+}
+
+code {
+  font-size: large;
+  color: black;
+}
