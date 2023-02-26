@@ -100,41 +100,4 @@ function sendFile() {
         uploadPaste(secret, title, paste);
     }
 
-    /*
-    let al = document.createElement("a");
-    console.log("file is " + file);
-    console.log("paste is " + paste.value);
-
-    formData.append("file", file);
-    formData.append("secret", secret.value);
-    formData.append("isPrivate", isPrivate.checked);
-
-    let res = await request("https://api.alazarte.com/file", formData, "File");
-    let st = document.createElement("div");
-    st.innerHTML = res.status + " " + res.statusText;
-    statusElem.innerHTML = "";
-    statusElem.appendChild(st);
-
-    al.setAttribute("href", res.link);
-    al.innerHTML = res.link;
-    linksElem.appendChild(al);
-    linksElem.appendChild(brElem);
-
-    formData = new FormData();
-
-    formData.append("title", title.value);
-    formData.append("paste", paste.value);
-    formData.append("secret", secret.value);
-
-    res = await request("https://api.alazarte.com/paste", formData, "Paste");
-    st = document.createElement("div");
-    st.innerHTML = res.status + " " + res.statusText;
-    statusElem.appendChild(st);
-
-    al = document.createElement("a");
-    al.setAttribute("href", res.link);
-    al.innerHTML = res.link;
-    linksElem.appendChild(al);
-    */
 }
-
