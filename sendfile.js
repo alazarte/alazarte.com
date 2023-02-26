@@ -1,21 +1,3 @@
-function request(url, body, msgPrefix) {
-    let rs = {};
-    return fetch(url, {method: "POST", body: body})
-        .then(r => {
-            rs.status = r.status;
-            rs.statusText = r.statusText;
-            return r.text();
-        })
-        .then(r => {
-            rs.link = r;
-            return rs;
-        })
-        .catch(e => {
-            console.log(e);
-            return e;
-        });
-}
-
 function uploadFile(secret, file, isPrivate) {
     const formData = new FormData();
 
@@ -26,12 +8,17 @@ function uploadFile(secret, file, isPrivate) {
     fetch("https://api.alazarte.com/file", {method: "POST", body: formData})
         .then(r => {
             appendStatus(r.status, r.statusText);
+            console.log(r);
+            console.log(r.ok);
 
-            if (r.status < 200 && r.status > 299) {
+            if (! r.ok) {
                 return;
             }
 
-            appendLink(r.link);
+            r.text()
+                .then( t => {
+                    appendLink(t);
+                });
         })
         .catch( e => {
             console.log(e);
@@ -51,11 +38,16 @@ function uploadPaste(secret, title, paste, isPrivate) {
         .then( r => {
             appendStatus(r.status, r.statusText);
             console.log(r);
-            if (r.status < 200 && r.status > 299) {
+            console.log(r.ok);
+
+            if (! r.ok) {
                 return;
             }
 
-            appendLink(r.link);
+            r.text()
+                .then( t => {
+                    appendLink(t);
+                });
         });
 }
 
@@ -68,10 +60,16 @@ function appendStatus(status, statusText) {
 }
 
 function appendLink(link) {
+    let al = undefined;
+    if (link === "Private file saved") {
+        al = document.createElement("p");
+    } else {
+        al = document.createElement("a");
+        al.setAttribute("href", link);
+    }
+
     const brElem = document.createElement("br");
     const linksElem = document.getElementById("links");
-    const al = document.createElement("a");
-    al.setAttribute("href", link);
     al.innerHTML = link;
 
     console.log(link);
@@ -84,8 +82,6 @@ function sendFile() {
     const statusElem = document.getElementById("status");
     statusElem.innerHTML = "Wait a bit, server has slow connection";
 
-    const brElem = document.createElement("br");
-
     const file = document.getElementById("file").files[0];
     const paste = document.getElementById("paste").value;
     const secret = document.getElementById("secret").value;
@@ -96,17 +92,18 @@ function sendFile() {
     const linksElem = document.getElementById("links");
     linksElem.innerHTML = "";
 
-    if (! file && !title && !paste) {
-        statusElem.innerHTML = "Nothing to send.";
+    if ((file && title) || paste) {
+        if (file) {
+            uploadFile(secret, file, isPrivate);
+        }
+
+        if (title && paste) {
+            uploadPaste(secret, title, paste, isPrivate);
+        }
+
         return;
     }
 
-    if (file) {
-        uploadFile(secret, file, isPrivate);
-    }
-
-    if (title && paste) {
-        uploadPaste(secret, title, paste);
-    }
-
+    statusElem.innerHTML = "Nothing to send.";
+    return;
 }

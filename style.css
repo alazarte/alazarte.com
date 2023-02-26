@@ -21,11 +21,11 @@ table {
   width: 100%;
 }
 
-#content {
+.content {
   width: 70%;
 }
 
-#links {
+.sidebar-links {
   width: 30%;
 }
 
