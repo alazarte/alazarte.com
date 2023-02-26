@@ -1,78 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script>
-  function request(url, body, msgPrefix) {
-    let rs = {};
-    return fetch(url, {method: "POST", body: body})
-      .then(r => {
-        rs.status = r.status;
-        rs.statusText = r.statusText;
-        return r.text();
-      })
-      .then(r => {
-        rs.link = r;
-        return rs;
-      })
-      .catch(e => {
-        console.log(e);
-        return e;
-      });
-  }
-
-  async function sendFile() {
-      const statusElem = document.getElementById("status");
-      statusElem.innerHTML = "sending...";
-
-      const brElem = document.createElement("br");
-
-      let file = document.getElementById("file").files[0];
-      let paste = document.getElementById("paste");
-      let secret = document.getElementById("secret");
-      let isPrivate = document.getElementById("isPrivate");
-      let formData = new FormData();
-
-      const linksElem = document.getElementById("links");
-      linksElem.innerHTML = "";
-
-      let al = document.createElement("a");
-
-      console.log("file is " + file);
-      console.log("paste is " + paste.value);
-
-      formData.append("file", file);
-      formData.append("secret", secret.value);
-      formData.append("isPrivate", isPrivate.checked);
-
-      let res = await request("https://api.alazarte.com/file", formData, "File");
-      let st = document.createElement("div");
-      st.innerHTML = res.status + " " + res.statusText;
-      statusElem.innerHTML = "";
-      statusElem.appendChild(st);
-
-      al.setAttribute("href", res.link);
-      al.innerHTML = res.link;
-      linksElem.appendChild(al);
-      linksElem.appendChild(brElem);
-
-      formData = new FormData();
-
-      formData.append("title", title.value);
-      formData.append("paste", paste.value);
-      formData.append("secret", secret.value);
-
-      res = await request("https://api.alazarte.com/paste", formData, "Paste");
-      st = document.createElement("div");
-      st.innerHTML = res.status + " " + res.statusText;
-      statusElem.appendChild(st);
-
-      al = document.createElement("a");
-      al.setAttribute("href", res.link);
-      al.innerHTML = res.link;
-      linksElem.appendChild(al);
-  }
-
-</script>
 <link rel="stylesheet" type="text/css" href="https://public.alazarte.com/style.css" />
 <style>
 table, table input, table textarea {
@@ -100,7 +28,7 @@ Attach image, or create a paste. But only I know the secret so you can't use it.
     </td>
     <td>
       <input type="file" id="file" name="file" accept="image/jpeg,image/png">
-      <td>
+    </td>
   </tr>
   <tr style="border-top: 1px solid black;">
     <td>
@@ -142,5 +70,6 @@ Attach image, or create a paste. But only I know the secret so you can't use it.
 </pre>
 <div id="links">
 </div>
+<script src="https://public.alazarte.com/js/sendfile.js"></script>
 </body>
 </html>
