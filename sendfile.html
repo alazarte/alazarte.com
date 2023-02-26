@@ -42,7 +42,7 @@
 
       formData.append("file", file);
       formData.append("secret", secret.value);
-      formData.append("isPrivate", isPrivate.value);
+      formData.append("isPrivate", isPrivate.checked);
 
       let res = await request("https://api.alazarte.com/file", formData, "File");
       let st = document.createElement("div");
@@ -131,7 +131,7 @@ Attach image, or create a paste. But only I know the secret so you can't use it.
     </td>
     <td>
       <button onclick="sendFile()">Send</button>
-      <input style="width: 20px" type="checkbox" id="isPrivate" name="isPrivate" value="yes">
+      <input style="width: 20px" type="checkbox" id="isPrivate" name="isPrivate">
       <label for="isPrivate">Private</label><br>
     </td>
   </tr>
