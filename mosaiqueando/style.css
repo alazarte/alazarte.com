@@ -1,0 +1,44 @@
+body {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+body.post {
+  text-align: left;
+}
+
+body div p {
+  text-align: center;
+}
+
+body h1, body.post h1 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+body table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+body table tr td img {
+  padding: 2px;
+}
+
+body table tr td img:hover {
+  padding: 0px;
+  border: 2px solid black;
+}
+
+body a {
+  color: black;
+  font-weight: bold;
+}
+
+#index {
+  font-weight: normal;
+}
