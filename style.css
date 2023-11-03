@@ -1,0 +1,74 @@
+body {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body p {
+  font-size: 20px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  min-height: 1em;
+  max-height: 500px;
+  overflow: auto;
+}
+
+code {
+  color: black;
+}
+
+.maxWidth {
+  width: 100%;
+}
+
+.galleryImg {
+  padding: 2px;
+}
+
+.galleryImg:hover {
+  padding: 0px;
+  border: 2px solid black;
+}
+
+#uploadFileForm * {
+  font-size: 18px;
+}
+
+#snippetTitleInput {
+  border: 0;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+
+#snippetAreaInput {
+  border: 1px solid black;
+  border-radius: 0;
+  font-size: 16px;
+  resize: vertical;
+  height: 200px;
+}
+
+.formInputLeft{
+  width: 80%;
+}
+
+.formButtonRight{
+  width: 18%;
+}
+
+.button {
+  background-color: #eee;
+  border: none;
+  color: black;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 0;
+  cursor: pointer;
+  font-family: serif;
+}
